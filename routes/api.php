@@ -14,3 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['client'])->group(function () {
+    Route::prefix('/trainers')->group(function () {
+        Route::get('/{id}', 'TrainersController@show');
+        Route::post('/', 'TrainersController@store');
+    });
+});
